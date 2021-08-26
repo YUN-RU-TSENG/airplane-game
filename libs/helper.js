@@ -69,4 +69,3 @@ export function coolDown({ callback, maximumNumberOfTimes = 0, second }) {
     callback.apply(this, args)
   }
 }
-

@@ -6,13 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint main.js",
-    "lint:fix": "eslint main.js --fix"
+    "lint:fix": "eslint main.js --fix",
+    "formate": "npx prettier --write ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
-    "eslint": "^7.32.0"
+    "eslint": "^7.32.0",
+    "prettier": "^2.3.2"
   }
 }
