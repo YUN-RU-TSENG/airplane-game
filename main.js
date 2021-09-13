@@ -470,6 +470,18 @@ function isGameOver() {
   requestAnimationFrame(isGameOver)
 }
 
+function detectingPageIsActive() {
+  document.addEventListener('visibilitychange', (e) => {
+    if (e.target.visibilityState === 'visible') {
+      isGameOnGoing = true
+      fireEnemyBullets()
+      dispatchANewEnemyPlane()
+      detectAttackDamage()
+    }
+    if (e.target.visibilityState === 'hidden') isGameOnGoing = false
+  })
+}
+
 function drawGame() {
   clearCanvas()
   drawSky()
@@ -498,20 +510,10 @@ function gameStart() {
   }
 }
 
-function detectingPageIsActive() {
-  document.addEventListener('visibilitychange', (e) => {
-    if (e.target.visibilityState === 'visible') {
-      isGameOnGoing = true
-      fireEnemyBullets()
-      dispatchANewEnemyPlane()
-      detectAttackDamage()
-    }
-    if (e.target.visibilityState === 'hidden') isGameOnGoing = false
-  })
-}
-
-isGameOver()
-gameStart()
+window.addEventListener('load', function () {
+  isGameOver()
+  gameStart()
+})
 
 // 修正為飛機都是用血量來計算生死
 // 子彈可以顯示冷卻時間
