@@ -459,15 +459,14 @@ function detectAttackDamage() {
 // function planeHitsTheBlood(params) {}
 
 function isGameOver() {
-  if (playerPlane.hitPoints < 0) {
+  if (playerPlane.hitPoints <= 0) {
     alert('Game over!')
     return window.location.reload()
-  }
-  if (playerPlane.attack >= 5000) {
+  } else if (playerPlane.attack >= 5000) {
     alert('You win!')
     return window.location.reload()
   }
-  requestAnimationFrame(isGameOver)
+  return requestAnimationFrame(isGameOver)
 }
 
 function detectingPageIsActive() {
